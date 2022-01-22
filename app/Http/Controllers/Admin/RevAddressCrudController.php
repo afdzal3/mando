@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\RevAddressRequest;
+use App\Common\CommonHelper;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -10,6 +11,7 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Models\RevAddress;
 use App\Models\InputAddress;
 use App\Models\Zip;
+use App\Models\InputError;
 
 /**
  * Class RevAddressCrudController
@@ -44,13 +46,43 @@ class RevAddressCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
-
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
+        $this->crud->denyAccess(['create', 'delete']);
+        $this->crud->addFilter([ 
+            'type'  => 'simple',
+            'name'  => 'unmapped',
+            'label' => 'Unmapped'
+          ],
+          false, 
+          function() { 
+              $revs = CommonHelper::getUnmappedRev();
+              $sql = $revs->toSql();
+
+              CRUD::setModel(\App\Models\Unmapped::class);
+
+           
+
+
+              
+        
+
+
+
+           
+
+
+              
+             
+  
+            }
+        );
+            
+
+          
 
 
       //  CRUD::column('id');
@@ -154,7 +186,7 @@ class RevAddressCrudController extends CrudController
         public function truncateRev()
         {
             RevAddress::truncate();
-            Zip::truncate();
+            InputError::truncate();
             return redirect(backpack_url('rev-address'));
         }
        

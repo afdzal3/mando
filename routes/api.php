@@ -22,6 +22,8 @@ Route::get('/user', function (Request $request) {
 
 Route::get('zip/getErrorRev', 'ZipController@getErrorRev')->name('zipapi.getErrorRev');
 
+Route::get('check/address', 'ZipController@checkAddress')->name('check.address');
+
 
 
 

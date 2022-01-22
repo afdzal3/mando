@@ -159,4 +159,12 @@ class ZipController extends Controller
 
         return ['count' => count($revs), 'data' => $revs];
     }
+
+    public function checkAddress(Request $req)
+    {
+
+        return $this->respond_json(200, 'Success', [
+            'req' => $req
+        ]);
+    }
 }

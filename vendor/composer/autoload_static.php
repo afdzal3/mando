@@ -735,6 +735,7 @@ class ComposerStaticInit478c3cd8f82ff165a5e5fc230561dda0
         'CreateRevisionsTable' => __DIR__ . '/..' . '/venturecraft/revisionable/src/migrations/2013_04_09_062329_create_revisions_table.php',
         'CreateSettingsTable' => __DIR__ . '/../..' . '/database/migrations/2015_08_04_131614_create_settings_table.php',
         'CreateTagsTable' => __DIR__ . '/../..' . '/database/migrations/2015_08_04_131626_create_tags_table.php',
+        'CreateUnmappedViews' => __DIR__ . '/../..' . '/database/migrations/2022_01_22_184853_create_unmapped_views.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CreateZipsTable' => __DIR__ . '/../..' . '/database/migrations/2022_01_21_153221_create_zips_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',

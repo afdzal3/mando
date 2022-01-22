@@ -67,4 +67,6 @@ Route::group([
     
     Route::crud('rev-address', 'RevAddressCrudController');
     Route::crud('input-error', 'InputErrorCrudController');
+    Route::get('charts/err-by-state', 'Charts\ErrByStateChartController@response')->name('charts.err-by-state.index');
+    Route::get('charts/err-by-inputstate', 'Charts\ErrByInputStateChartController@response')->name('charts.err-by-state.index');
 }); // this should be the absolute last line of this file

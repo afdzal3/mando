@@ -21,7 +21,7 @@ class ChartjsPieController extends ChartController
 
         // OPTIONAL
         $this->chart->displayAxes(false);
-        $this->chart->displayLegend(true);
+        $this->chart->displayLegend(false);
 
         // MANDATORY. Set the labels for the dataset points
         $this->chart->labels(['HTML', 'CSS', 'PHP', 'JS']);

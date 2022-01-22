@@ -40,6 +40,7 @@ return array(
     'CreateRevisionsTable' => $vendorDir . '/venturecraft/revisionable/src/migrations/2013_04_09_062329_create_revisions_table.php',
     'CreateSettingsTable' => $baseDir . '/database/migrations/2015_08_04_131614_create_settings_table.php',
     'CreateTagsTable' => $baseDir . '/database/migrations/2015_08_04_131626_create_tags_table.php',
+    'CreateUnmappedViews' => $baseDir . '/database/migrations/2022_01_22_184853_create_unmapped_views.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CreateZipsTable' => $baseDir . '/database/migrations/2022_01_21_153221_create_zips_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
