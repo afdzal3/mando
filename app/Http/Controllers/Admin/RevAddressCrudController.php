@@ -28,7 +28,7 @@ class RevAddressCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\RevAddress::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/rev-address');
-        CRUD::setEntityNameStrings('rev address', 'rev addresses');
+        CRUD::setEntityNameStrings('new revise address', 'revise address');
     }
 
     /**
@@ -46,6 +46,20 @@ class RevAddressCrudController extends CrudController
          * - CRUD::column('price')->type('number');
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
+
+
+      //  CRUD::column('id');
+        CRUD::column('cust_id');
+        CRUD::column('addr_supp');
+        CRUD::column('street_addr');
+        CRUD::column('d_street_addr_3');
+        CRUD::column('d_street_addr_4');
+        CRUD::column('zip');
+        CRUD::column('city');
+        CRUD::column('d_state_name');
+        CRUD::column('country_code');
+        CRUD::column('error_count');
+
     }
 
     /**
@@ -58,7 +72,19 @@ class RevAddressCrudController extends CrudController
     {
         CRUD::setValidation(RevAddressRequest::class);
 
-        
+       // CRUD::field('id');
+        CRUD::field('cust_id');
+        CRUD::field('addr_supp');
+        CRUD::field('street_addr');
+        CRUD::field('d_street_addr_3');
+        CRUD::field('d_street_addr_4');
+        CRUD::field('zip');
+        CRUD::field('city');
+        CRUD::field('d_state_name');
+        CRUD::field('country_code');
+        CRUD::field('error_count');
+        //CRUD::field('created_at');
+        //CRUD::field('updated_at');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

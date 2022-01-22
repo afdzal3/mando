@@ -50,8 +50,8 @@ class InputAddressCrudController extends CrudController
         CRUD::column('d_state_name');
         CRUD::column('country_code');
         CRUD::column('error_count');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+    //    CRUD::column('created_at');
+    //    CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -71,7 +71,7 @@ class InputAddressCrudController extends CrudController
     {
         CRUD::setValidation(InputAddressRequest::class);
 
-        CRUD::field('id');
+    //    CRUD::field('id');
         CRUD::field('cust_id');
         CRUD::field('addr_supp');
         CRUD::field('street_addr');
@@ -82,8 +82,8 @@ class InputAddressCrudController extends CrudController
         CRUD::field('d_state_name');
         CRUD::field('country_code');
         CRUD::field('error_count');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
+    //    CRUD::field('created_at');
+    //    CRUD::field('updated_at');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
