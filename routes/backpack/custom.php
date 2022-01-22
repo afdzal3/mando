@@ -66,4 +66,5 @@ Route::group([
     Route::crud('zip', 'ZipCrudController');
     
     Route::crud('rev-address', 'RevAddressCrudController');
+    Route::crud('input-error', 'InputErrorCrudController');
 }); // this should be the absolute last line of this file

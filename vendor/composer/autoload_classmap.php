@@ -26,6 +26,7 @@ return array(
     'CreateFailedJobsTable' => $baseDir . '/database/migrations/2019_09_13_093251_create_failed_jobs_table.php',
     'CreateIconsTable' => $baseDir . '/database/migrations/2017_12_18_075638_create_icons_table.php',
     'CreateInputAddressesTable' => $baseDir . '/database/migrations/2022_01_21_135547_create_input_addresses_table.php',
+    'CreateInputErrorsTable' => $baseDir . '/database/migrations/2022_01_22_121251_create_input_errors_table.php',
     'CreateMenuItemsTable' => $baseDir . '/database/migrations/2016_05_05_115641_create_menu_items_table.php',
     'CreateMonsterArticlesTable' => $baseDir . '/database/migrations/2017_04_21_052455_create_monster_articles_table.php',
     'CreateMonsterCategoryTable' => $baseDir . '/database/migrations/2017_04_21_052456_create_monster_category_table.php',

@@ -182,7 +182,7 @@ final class Versions
   'symfony/debug' => 'v4.4.36@346e1507eeb3f566dcc7a116fefaa407ee84691b',
   'symfony/dom-crawler' => 'v5.4.2@bb3bc3699779fc6d9646270789026a7e2cec7ec7',
   'theseer/tokenizer' => '1.2.1@34a41e998c2183e22995f158c581e7b5e755ab9e',
-  'backpack/demo' => 'dev-main@251caa2902c7072015dc84ef6bddb2cac1284e48',
+  'backpack/demo' => 'dev-main@54e774e495429f6b03363f0d907d08f419ff8579',
 );
 
     private function __construct()

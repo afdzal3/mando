@@ -9,6 +9,7 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 use App\Models\RevAddress;
 use App\Models\InputAddress;
+use App\Models\Zip;
 
 /**
  * Class RevAddressCrudController
@@ -153,6 +154,7 @@ class RevAddressCrudController extends CrudController
         public function truncateRev()
         {
             RevAddress::truncate();
+            Zip::truncate();
             return redirect(backpack_url('rev-address'));
         }
        
