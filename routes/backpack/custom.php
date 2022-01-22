@@ -9,6 +9,16 @@
 Route::get('api/article', 'App\Http\Controllers\Api\ArticleController@index');
 Route::get('api/article-search', 'App\Http\Controllers\Api\ArticleController@search');
 
+
+Route::group([
+    'prefix'     => config('backpack.base.route_prefix', 'admin'),
+    'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
+    'namespace'  => 'App\Http\Controllers',
+], function () { 
+Route::get('zip/populate', 'ZipController@popZip')->name('zip.pop');
+Route::get('zip/truncate', 'ZipController@truncateZip')->name('zip.truncate');
+});
+
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
@@ -47,4 +57,6 @@ Route::group([
     }
     Route::crud('address', 'AddressCrudController');
     Route::crud('input-address', 'InputAddressCrudController');
+    Route::crud('zip', 'ZipCrudController');
+    
 }); // this should be the absolute last line of this file
