@@ -41,11 +41,12 @@ class ZipCrudController extends CrudController
     {
         CRUD::column('id');
         CRUD::column('zip');
+        CRUD::column('city');
         CRUD::column('d_state_name');
         CRUD::column('country_code');
         CRUD::column('mark');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+       // CRUD::column('created_at');
+        //CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -68,11 +69,12 @@ class ZipCrudController extends CrudController
 
         CRUD::field('id');
         CRUD::field('zip');
+        CRUD::field('city');
         CRUD::field('d_state_name');
         CRUD::field('country_code');
         CRUD::field('mark');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
+       // CRUD::field('created_at');
+        //CRUD::field('updated_at');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
