@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0964fd673cdd99573e89c5af7307a3a7",
+    "content-hash": "3a768495628f2a1ad6bb79c948704908",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -2687,6 +2687,54 @@
                 }
             ],
             "time": "2021-10-06T17:43:30+00:00"
+        },
+        {
+            "name": "hotmeteor/regex",
+            "version": "v0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hotmeteor/regex.git",
+                "reference": "3b0a18049895482d4e8fbc10f393e95b1ded3bd0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hotmeteor/regex/zipball/3b0a18049895482d4e8fbc10f393e95b1ded3bd0",
+                "reference": "3b0a18049895482d4e8fbc10f393e95b1ded3bd0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/support": "^8.0|^9.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "nunomaduro/collision": "^5.6",
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Hotmeteor\\Regex\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Campbell",
+                    "email": "adam@hotmeteor.com"
+                }
+            ],
+            "description": "A Regex library for Laravel.",
+            "support": {
+                "issues": "https://github.com/hotmeteor/regex/issues",
+                "source": "https://github.com/hotmeteor/regex/tree/v0.4"
+            },
+            "time": "2021-09-07T18:22:04+00:00"
         },
         {
             "name": "intervention/image",
