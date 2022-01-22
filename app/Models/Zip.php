@@ -6,7 +6,9 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Zip extends Model
-{
+{ 
+
+    
     use CrudTrait;
 
     /*
