@@ -64,6 +64,9 @@ class RevAddressCrudController extends CrudController
         CRUD::column('country_code');
         CRUD::column('error_count');
 
+
+        $this->crud->addButtonFromView('top', 'Truncate Revsion', 'truncRev', 'end');
+
     }
 
     /**

@@ -55,6 +55,8 @@ class ZipCrudController extends CrudController
          */
 
         $this->crud->addButtonFromView('top', 'Clear Mappings', 'clrZip', 'end');
+        $this->crud->addButtonFromView('top', 'ApplyRule', 'applyRule', 'end');
+
     }
 
     /**

@@ -79,17 +79,86 @@ class ZipController extends Controller
 
     public function updRevZip(Request $req)
     {
-        $results = RevAddress::from('RevAddress as rv')->leftJoin('zips', function ($join) {
+        
+        $revs = RevAddress::from('rev_addresses as rv')->leftJoin('zips', function ($join) {
             $join->on('zips.zip', '=', 'rv.zip');
             $join->on('zips.city', '=', 'rv.city');
             $join->on('zips.d_state_name', '=', 'rv.d_state_name');
             $join->on('zips.country_code', '=', 'rv.country_code');
         })
             ->where('zips.id', '=', NULL)
-            ->get();
+            ->get(['rv.*','zips.zip as z_zip','zips.city as z_city','zips.d_state_name as z_d_state_name', 'zips.country_code as z_country_code']);
 
-            return $results;
+            foreach($revs as $rev){
+
+                $resolve = false;
+
+                $numpattern = "/^([0-9]+)$/";
+                preg_match($numpattern, $rev->zip, $zip_is_number);
+
+                $state_is_alpha = Regex::isAlpha($rev->d_state_name, $allowWhitespace = true);
+                
+                //error 1
+                if(!$state_is_alpha && $resolve == false)
+                {
+                    $z = Zip::where('zip',$rev->zip)->where('city',$rev->city)
+                    ->where('country_code',$rev->country_code)
+                    ->orderBy('mark', 'DESC')->first();
+
+                   // dd($rev);
+                    
+                    if($z){
+
+                    $rev->d_state_name = $z->d_state_name;
+                    $rev->save();
+                    }
+
+                }
+
+  //error 2
+                if(!$zip_is_number && $resolve == false)
+                {
+                    $z = Zip::where('city',$rev->city)
+                    ->where('d_state_name',$rev->d_state_name)
+                    ->where('country_code',$rev->country_code)
+                    ->orderBy('mark', 'DESC')->first();
+
+                   // dd($rev);
+                   
+                    if($z){
+
+                    $rev->zip = $z->zip;
+                    $rev->save();
+                    }
+
+                }
+
+            //error 3
+                if(!$zip_is_number && $resolve == false)
+                {
+                  
+                    $rev->zip = '';
+                 
+                }
+            //error 4
+            if(!$state_is_alpha && $resolve == false)
+            {
+                $rev->d_state_name = '';
+             
+             
+            }
+
+
+     
+
+            }
+
+            
+            return redirect(backpack_url('rev-address'));
+       
         }
+
+      
     }
 
    
