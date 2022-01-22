@@ -10,6 +10,7 @@ Route::get('api/article', 'App\Http\Controllers\Api\ArticleController@index');
 Route::get('api/article-search', 'App\Http\Controllers\Api\ArticleController@search');
 
 
+
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
@@ -20,6 +21,8 @@ Route::get('zip/truncate', 'ZipController@truncateZip')->name('zip.truncate');
 Route::get('zip/updRev', 'ZipController@updRevZip')->name('zip.updRevZip');
 Route::get('revise/pop', 'Admin\RevAddressCrudController@popRevise')->name('rev.pop');
 Route::get('revise/truncate', 'Admin\RevAddressCrudController@truncateRev')->name('rev.truncate');
+
+
 });
 
 Route::group([

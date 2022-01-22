@@ -79,7 +79,9 @@ class ZipController extends Controller
 
     public function updRevZip(Request $req)
     {
-        
+     
+        /**
+     
         $revs = RevAddress::from('rev_addresses as rv')->leftJoin('zips', function ($join) {
             $join->on('zips.zip', '=', 'rv.zip');
             $join->on('zips.city', '=', 'rv.city');
@@ -89,7 +91,13 @@ class ZipController extends Controller
             ->where('zips.id', '=', NULL)
             ->get(['rv.*','zips.zip as z_zip','zips.city as z_city','zips.d_state_name as z_d_state_name', 'zips.country_code as z_country_code']);
 
+**/
+
+
+
+           $revs = $this->getErrorRev()['data'];
             foreach($revs as $rev){
+               
 
                 $resolve = false;
 
@@ -156,6 +164,24 @@ class ZipController extends Controller
             
             return redirect(backpack_url('rev-address'));
        
+        }
+
+
+
+        public function getErrorRev()
+        {
+            
+            $revs = RevAddress::from('rev_addresses as rv')->leftJoin('zips', function ($join) {
+                $join->on('zips.zip', '=', 'rv.zip');
+                $join->on('zips.city', '=', 'rv.city');
+                $join->on('zips.d_state_name', '=', 'rv.d_state_name');
+                $join->on('zips.country_code', '=', 'rv.country_code');
+            })
+                ->where('zips.id', '=', NULL)
+                ->get(['rv.*','zips.zip as z_zip','zips.city as z_city','zips.d_state_name as z_d_state_name', 'zips.country_code as z_country_code']);
+
+            return ['count'=>count($revs),'data'=>$revs];
+
         }
 
       

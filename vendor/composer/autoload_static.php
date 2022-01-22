@@ -705,6 +705,8 @@ class ComposerStaticInit478c3cd8f82ff165a5e5fc230561dda0
         'AddCityToZips' => __DIR__ . '/../..' . '/database/migrations/2022_01_22_051526_add_city_to_zips.php',
         'AddSlugToCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_24_060017_add_slug_to_categories_table.php',
         'AddSlugToTagsTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_24_060101_add_slug_to_tags_table.php',
+        'AddUnqInputAddr' => __DIR__ . '/../..' . '/database/migrations/2022_01_22_115533_add_unq_input_addr.php',
+        'AddUnqRevAddr' => __DIR__ . '/../..' . '/database/migrations/2022_01_22_114737_add_unq_rev_addr.php',
         'AlterMonstersTableAddRelationshipColumns' => __DIR__ . '/../..' . '/database/migrations/2020_03_12_100831_alter_monsters_table_add_relationship_columns.php',
         'AlterMonstersTableRemoveAddress' => __DIR__ . '/../..' . '/database/migrations/2020_03_12_100831_alter_monsters_table_remove_address.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
