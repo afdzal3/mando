@@ -42,3 +42,4 @@
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('input-address') }}'><i class='nav-icon la la-question'></i> Input addresses</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('zip') }}'><i class='nav-icon la la-question'></i> Zips</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('rev-address') }}'><i class='nav-icon la la-question'></i> Rev addresses</a></li>
