@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\RevAddressRequest;
+
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+
+use App\Models\RevAddress;
+use App\Models\InputAddress;
 
 /**
  * Class RevAddressCrudController
@@ -103,4 +107,57 @@ class RevAddressCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
+
+    public function popRevise(){
+
+        
+        $ius = InputAddress::doesntHave('revAddress')->get();
+
+        foreach($ius as $iu){
+            
+            $rev =  new RevAddress;
+
+  
+
+
+
+
+            
+            
+            $rev->cust_id = $iu->cust_id;
+            $rev->addr_supp = $iu->addr_supp;
+            $rev->street_addr = $iu->street_addr;
+            $rev->d_street_addr_3 = $iu->d_street_addr_3;
+            $rev->d_street_addr_4 = $iu->d_street_addr_4;
+            $rev->zip = $iu->zip;
+            $rev->city = $iu->city;
+            $rev->d_state_name = $iu->d_state_name;
+            $rev->country_code = $iu->country_code;
+            //$rev->error_count = $iu->error_count;
+            $rev->save();
+     
+
+
+
+        }
+
+       
+
+        return redirect(backpack_url('rev-address'));
+        }
+
+        public function truncateRev()
+        {
+            RevAddress::truncate();
+            return redirect(backpack_url('rev-address'));
+        }
+       
+
+
+
+     
+
+    
+    
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InputAddress;
+use App\Models\RevAddress;
 use App\Models\Zip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -15,26 +16,30 @@ class ZipController extends Controller
 
     public function popZip(Request $req)
     {
-        ini_set('max_execution_time', '3000'); 
-        set_time_limit(3000);
-       
-        
+        ini_set('max_execution_time', '3000');
+        set_time_limit(300);
+
+
         $ius =  InputAddress::all();
 
-      
+
 
 
 
 
         foreach ($ius as $iu) {
-            $numpattern="/^([0-9]+)$/";
-            preg_match($numpattern,$iu->zip,$zip_is_number);
+            $numpattern = "/^([0-9]+)$/";
+            preg_match($numpattern, $iu->zip, $zip_is_number);
 
             $check = true;
-            if(!$zip_is_number){$check = false;}
-            
+            if (!$zip_is_number) {
+                $check = false;
+            }
+
             $state_is_alpha = Regex::isAlpha($iu->d_state_name, $allowWhitespace = true);
-            if(!$state_is_alpha){$check = false;}
+            if (!$state_is_alpha) {
+                $check = false;
+            }
 
 
             if ($check) {
@@ -63,7 +68,7 @@ class ZipController extends Controller
 
 
 
-       return redirect(backpack_url('input-address'));
+        return redirect(backpack_url('input-address'));
     }
 
     public function truncateZip(Request $req)
@@ -71,4 +76,20 @@ class ZipController extends Controller
         Zip::truncate();
         return redirect(backpack_url('zip'));
     }
-}
+
+    public function updRevZip(Request $req)
+    {
+        $results = RevAddress::from('RevAddress as rv')->leftJoin('zips', function ($join) {
+            $join->on('zips.zip', '=', 'rv.zip');
+            $join->on('zips.city', '=', 'rv.city');
+            $join->on('zips.d_state_name', '=', 'rv.d_state_name');
+            $join->on('zips.country_code', '=', 'rv.country_code');
+        })
+            ->where('zips.id', '=', NULL)
+            ->get();
+
+            return $results;
+        }
+    }
+
+   

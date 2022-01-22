@@ -59,6 +59,7 @@ class InputAddressCrudController extends CrudController
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
         $this->crud->addButtonFromView('top', 'Populate Zip Table', 'popZip', 'end');
+        $this->crud->addButtonFromView('top', 'Send to Revision', 'popRev', 'end');
     }
 
     /**

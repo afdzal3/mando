@@ -17,6 +17,8 @@ Route::group([
 ], function () { 
 Route::get('zip/populate', 'ZipController@popZip')->name('zip.pop');
 Route::get('zip/truncate', 'ZipController@truncateZip')->name('zip.truncate');
+Route::get('zip/updRev', 'ZipController@updRevZip')->name('zip.updRevZip');
+Route::get('revise/pop', 'Admin\RevAddressCrudController@popRevise')->name('rev.pop');
 });
 
 Route::group([
