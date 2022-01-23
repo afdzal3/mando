@@ -163,8 +163,58 @@ class ZipController extends Controller
     public function checkAddress(Request $req)
     {
 
+    
+
+
+        $addr_supp = $req->addr_supp;
+        $street_addr = $req->street_addr ;
+        $d_street_addr_3 = $req->d_street_addr_3 ;
+        $d_street_addr_4 = $req->d_street_addr_4 ;
+        $zip = $req->zip ;
+        $city = $req->city ;
+        $d_state_name = $req->d_state_name ;
+        $country_code = $req->country_code ;
+
+
+        $numpattern = "/^([0-9]+)$/";
+        preg_match($numpattern, $zip, $zip_is_number);
+        $state_is_alpha = Regex::isAlpha($d_state_name, $allowWhitespace = true);
+        
+        $addr_status = 'OK';
+        if( $state_is_alpha ){
+            $msg[]='State is accepted';
+        }else{
+            $msg[]='State is not accepted';
+            $addr_status = 'NOT OK';
+        }
+
+        if( $zip_is_number ){
+            $msg[]='Zip is accepted';
+        }else{
+            $msg[]='Zip is not accepted';
+            $addr_status = 'NOT OK';
+        }
+
+
+
+
+    
+
+        return response()->json([
+            'msg'=>$msg,
+            'status'=>$addr_status,
+
+            'original_req' => $req,
+
+
+
+
+       
+        ]);
+/*
         return $this->respond_json(200, 'Success', [
             'req' => $req
         ]);
+        */
     }
 }
